@@ -21,7 +21,7 @@ unsigned char kb_func;
 unsigned char kb_string[512];
 };
 int fd;
-void race1()
+void *race1()
 {    
     struct kbsentry *kbs;  
     void *addr = malloc(0x100);    
@@ -32,7 +32,7 @@ void race1()
     ioctl(fd,KDGKBSENT,addr);
    
 }    
-void race2()
+void *race2()
 {    
     struct kbsentry *kbs;
     kbs = malloc(sizeof(struct kbsentry));
