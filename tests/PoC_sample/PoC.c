@@ -42,9 +42,12 @@ void *race2()
 }  
 int main(int argc, char** argv)
 {
+    void *status;
     pthread_t th1,th2;
     fd = open("/dev/tty1", O_RDONLY, 0);
     pthread_create(&th1, NULL, race1, NULL);
     pthread_create(&th2, NULL, race2, NULL);
-    
+    pthread_join(th1, &status);
+    pthread_join(th2, &status);
+
 }
