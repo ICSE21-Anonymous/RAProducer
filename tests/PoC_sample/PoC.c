@@ -1,3 +1,5 @@
+// With the proper scheduling, this data-race PoC may trigger a UAF crash.
+// However, without the help of RAProducer, it could run in a loop for two days without crashing.
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
